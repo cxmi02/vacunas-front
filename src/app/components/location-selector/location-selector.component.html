@@ -1,32 +1,25 @@
 <div class="flex flex-col items-center mb-4 w-full max-w-xs mx-auto">
-    <div class="flex justify-between w-full">
-      <div class="mb-4 w-full mr-8">
-        <label for="department" class="block text-sm font-medium text-gray-700">
-          Departamento
-        </label>
-        <select
-          id="department"
-          class="text-xs mt-1 block w-full border border-gray-300 rounded-md p-2"
-        >
-          <option value="" disabled selected>Selecciona un departamento</option>
-          <option value="1">Departamento 1</option>
-          <option value="2">Departamento 2</option>
-        </select>
-      </div>
-      
-      <div class="mb-4 w-full">
-        <label for="municipality" class="block text-sm font-medium text-gray-700">
-          Municipio
-        </label>
-        <select
-          id="municipality"
-          class="text-xs mt-1 block w-full border border-gray-300 rounded-md p-2"
-        >
-          <option value="" disabled selected>Selecciona un municipio</option>
-          <option value="1">Municipio 1</option>
-          <option value="2">Municipio 2</option>
-        </select>
-      </div>
+  <div *ngFor="let location of locations; let i = index" class="flex justify-between w-full mb-2">
+    <div class="w-full mr-8">
+      <label for="department-{{i}}" class="block text-sm font-medium text-gray-700">Departamento</label>
+      <select
+        id="department-{{i}}"
+        class="text-xs mt-1 block w-full border border-gray-300 rounded-md p-2"
+        [(ngModel)]="location.department">
+        <option value="" disabled>Selecciona un departamento</option>
+        <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+      </select>
+    </div>
+    
+    <div class="w-full">
+      <label for="municipality-{{i}}" class="block text-sm font-medium text-gray-700">Municipio</label>
+      <select
+        id="municipality-{{i}}"
+        class="text-xs mt-1 block w-full border border-gray-300 rounded-md p-2"
+        [(ngModel)]="location.municipality">
+        <option value="" disabled>Selecciona un municipio</option>
+        <option *ngFor="let municipality of municipalities" [value]="municipality">{{ municipality }}</option>
+      </select>
     </div>
   </div>
-  
+</div>

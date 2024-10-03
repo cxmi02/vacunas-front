@@ -16,11 +16,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="border border-gray-500 p-2">Juan Pérez</td>
-          <td class="border border-gray-500 p-2">5</td>
-          <td class="border border-gray-500 p-2">Municipio 1</td>
-          <td class="border border-gray-500 p-2">Vacuna A</td>
+        <tr *ngFor="let child of children">
+          <td class="border border-gray-500 p-2">{{ child.name }}</td>
+          <td class="border border-gray-500 p-2">{{ child.age }}</td>
+          <td class="border border-gray-500 p-2">{{ child.municipality }}</td>
+          <td class="border border-gray-500 p-2">{{ child.vaccines }}</td>
         </tr>
       </tbody>
     </table>

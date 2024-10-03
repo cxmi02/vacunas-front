@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location-selector.component.css']
 })
 export class LocationSelectorComponent implements OnInit {
+  locations: { department: string; municipality: string }[] = [];
+  departments: string[] = ['Departamento 1', 'Departamento 2'];
+  municipalities: string[] = ['Municipio 1', 'Municipio 2', 'Municipio 3'];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.addLocation();
   }
 
+  addLocation(): void {
+    this.locations.push({ department: '', municipality: '' });
+  }
 }
